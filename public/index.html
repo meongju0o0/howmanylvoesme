@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <style>
+            /* Google Fonts에서 가져온 Roboto 폰트 */
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+            /* body에 전체적인 폰트 스타일 적용 */
+            body {
+                font-family: 'Roboto', sans-serif;
+            }
+
+            /* Main container styles */
+            main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f8f9fa;
+            }
+
+            /* Child div styles */
+            div {
+                margin: 1em;
+                text-align: center;
+                padding: 20px;
+                border-radius: 15px; /* div 테두리를 둥글게 */
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* div에 그림자 추가 */
+                background-color: white; /* div의 배경색을 흰색으로 */
+            }
+
+            /* Input field styles */
+            input[type="text"] {
+                margin: 0.5em 0;
+                padding: 0.5em;
+                border: 1px solid #ccc;
+                border-radius: 4px; /* 입력창 모서리를 둥글게 */
+            }
+
+            /* Button styles */
+            button {
+                margin: 0.5em 0;
+                padding: 0.5em 1em;
+                color: white;
+                background-color: #FF90BB; /* 버튼 색상을 분홍색으로 */
+                border: none;
+                border-radius: 4px; /* 버튼 모서리를 둥글게 */
+                cursor: pointer; /* 마우스가 버튼 위에 올라갈 때 손가락 모양으로 바꿈 */
+            }
+
+            /* 버튼 hover 스타일 */
+            button:hover {
+                background-color: #FF69B4; /* 마우스 오버시 버튼 색상을 핫핑크로 변경 */
+            }
+
+            @media screen and (max-width: 600px) {
+                main {
+                    padding: 1em;
+                }
+
+                div {
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin: 0 auto;
+                }
+
+                input[type="text"] {
+                    width: 100%;
+                }
+            }
+        </style>
+
+        <title>나 얼마나 좋아해..?</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Open Graph tags for better social sharing -->
+        <meta property="og:title" content="나 얼마나 좋아해..?">
+        <!-- <meta property="og:image" content="https://yourwebsite.com/link-to-your-image.jpg"> -->
+        <meta property="og:url" content="https://howmanyloves.me">
+
+    </head>
+
+    <main>
+        <div>
+            <h2>나 얼마나 좋아해..?</h2>
+            <input type="text" id="me" placeholder="본인">
+            <input type="text" id="you" placeholder="상대방">
+            <h4>처음 결과가 가장 정확해..</h4>
+            <button id="chk_love">확인</button>
+            <h4 id="percentage"></h4>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('chk_love').addEventListener('click', function () {
+            chkLove();
+        });
+
+        async function chkLove() {
+            var me = document.getElementById('me').value;
+            var you = document.getElementById('you').value;
+            var result = generateGaussian(50, 640);
+            if (me.trim() === '') {
+                me = '본인'
+            }
+            if (you.trim() === '') {
+                you = '상대방'
+            }
+            document.getElementById('percentage').innerHTML = you + '이(가) ' + '당신을 좋아하는 정도는: ' + result.toFixed(2) + '%';
+        }
+
+        function generateGaussian(mean, variance) {
+            let u1 = Math.random();
+            let u2 = Math.random();
+            let randStdNormal = Math.sqrt(-2.0 * Math.log(u1)) * Math.sin(2.0 * Math.PI * u2);
+            let randNormal = mean + Math.sqrt(variance) * randStdNormal;
+
+            if (randNormal < 0) {
+                return 0;
+            }
+            else if (randNormal > 100) {
+                return 100;
+            }
+            else {
+                return randNormal;
+            }
+        }
+    </script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6936716032523241" crossorigin="anonymous"></script>
+</html>
