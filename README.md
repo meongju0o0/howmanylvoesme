@@ -13,7 +13,7 @@
 - Domain Name Service
 
 ### Link
-[https://howmanyloves.me](https://howmanyloves.me)
+[https://how-many-loves-me.web.app/](https://how-many-loves-me.web.app/)
 
 ### Example Image
 ![img](https://user-images.githubusercontent.com/93894320/244913154-62d20e1f-80ae-4925-9b34-7196c8360ed5.png)
