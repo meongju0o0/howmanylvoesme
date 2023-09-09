@@ -19,4 +19,4 @@
 ![img](https://user-images.githubusercontent.com/93894320/244913154-62d20e1f-80ae-4925-9b34-7196c8360ed5.png)
 
 #### License
-MIT License.
+meongju0o0 uses MIT License.
